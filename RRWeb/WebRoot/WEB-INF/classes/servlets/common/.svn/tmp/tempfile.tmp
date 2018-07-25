@@ -1,0 +1,243 @@
+ package servlets.common;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.PropertyResourceBundle;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import beans.common.CommonBean;
+import eth.factory.ConnectionFactory;
+import eth.i18n.ETHi18n;
+import eth.logger.ETHLogger;
+
+public class VehicleMasterServlet extends HttpServlet {
+
+	
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+
+		String dbConnVar="";
+		Connection con = null;
+		ConnectionFactory ConnectionFactory = null;
+		PreparedStatement stmt = null;
+		Statement selectstmt = null;
+		ResultSet rs = null;
+		String str = null;
+		String msg = null;
+		ETHi18n  i18n =null; 
+		 
+		try
+		{
+		 
+		req.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html; charset=UTF-8");
+		HttpSession session = req.getSession();
+		
+		
+		if(session.getAttribute("dbConnVar")!=null)
+		 {
+			dbConnVar=session.getAttribute("dbConnVar").toString();
+		 }
+		 
+		ConnectionFactory = new ConnectionFactory(dbConnVar);
+		
+		
+		String localLang="";
+		 
+		if(req.getParameter("localLang")!=null && !req.getParameter("localLang").equalsIgnoreCase("null") && !req.getParameter("localLang").equalsIgnoreCase(""))
+		{
+			localLang=req.getParameter("localLang");
+			session.setAttribute("localLang",localLang);
+		}
+		else 
+		{
+			if(session!=null && session.getAttribute("localLang")!=null && !session.getAttribute("localLang").toString().equalsIgnoreCase("null") && !session.getAttribute("localLang").toString().equalsIgnoreCase(""))
+			{
+				localLang=session.getAttribute("localLang").toString();
+			}
+		}
+		 
+		i18n = new ETHi18n(dbConnVar,true,localLang);
+		PropertyResourceBundle prb = i18n.getETHi18nVar("ParentPortal");
+		 
+		String vehicleRegNo="",plateTypeId="",chassisNo="",engineNo="",trafficFileNo="",engineCapacity="",makeCompanyList="",model="",ivmsNo="",vehicleTypeList=""
+			,ownerName="",fuelTypeList="",fuelCapacity="",fuelCardNo="",fuelLimit="",mileage="",expAccount="",seatingCapacity="",regExpDate="",contractExpDate="",hiredDate="",hiredRate="",offHiredDate="",contractRefNo="" ;
+		String token="\ub006";
+			if(req.getParameter("vehicleRegNo")!=null)
+			{
+				vehicleRegNo=req.getParameter("vehicleRegNo");
+			}
+			if(req.getParameter("plateTypeId")!=null)
+			{
+				plateTypeId=req.getParameter("plateTypeId");
+			}
+			if(req.getParameter("chassisNo")!=null)
+			{
+				chassisNo=req.getParameter("chassisNo");
+			}
+			if(req.getParameter("engineNo")!=null)
+			{
+				engineNo=req.getParameter("engineNo");
+			}
+			if(req.getParameter("trafficFileNo")!=null)
+			{
+				trafficFileNo=req.getParameter("trafficFileNo");
+			}
+			if(req.getParameter("engineCapacity")!=null)
+			{
+				engineCapacity=req.getParameter("engineCapacity");
+			}
+			if(req.getParameter("makeCompanyList")!=null)
+			{
+				makeCompanyList=req.getParameter("makeCompanyList");
+			}
+			if(req.getParameter("model")!=null)
+			{
+				model=req.getParameter("model");
+			}
+			
+			if(req.getParameter("ivmsNo")!=null)
+			{
+				ivmsNo=req.getParameter("ivmsNo");
+			}
+			if(req.getParameter("vehicleTypeList")!=null)
+			{
+				vehicleTypeList=req.getParameter("vehicleTypeList");
+			}
+			if(req.getParameter("ownerName")!=null)
+			{
+				ownerName=req.getParameter("ownerName");
+			}
+
+			if(req.getParameter("fuelTypeList")!=null)
+			{
+				fuelTypeList=req.getParameter("fuelTypeList");
+			}
+			if(req.getParameter("fuelCapacity")!=null)
+			{
+				fuelCapacity=req.getParameter("fuelCapacity");
+			}
+			
+			if(req.getParameter("fuelCardNo")!=null)
+			{
+				fuelCardNo=req.getParameter("fuelCardNo");
+			}
+			if(req.getParameter("mileage")!=null)
+			{
+				mileage=req.getParameter("mileage");
+			}
+			if(req.getParameter("fuelLimit")!=null)
+			{
+				fuelLimit=req.getParameter("fuelLimit");
+			}
+			if(req.getParameter("expAccount")!=null)
+			{
+				expAccount=req.getParameter("expAccount");
+			}
+			
+			if(req.getParameter("seatingCapacity")!=null)
+			{
+				seatingCapacity=req.getParameter("seatingCapacity");
+			}
+ 
+			
+			if(req.getParameter("regExpDate")!=null)
+			{
+				regExpDate=req.getParameter("regExpDate");
+			}
+			if(req.getParameter("contractExpDate")!=null)
+			{
+				contractExpDate=req.getParameter("contractExpDate");
+			}
+			if(req.getParameter("hiredDate")!=null)
+			{
+				hiredDate=req.getParameter("hiredDate");
+			}
+			if(req.getParameter("hiredRate")!=null)
+			{
+				hiredRate=req.getParameter("hiredRate");
+			}
+			
+			if(req.getParameter("offHiredDate")!=null)
+			{
+				offHiredDate=req.getParameter("offHiredDate");
+			}
+
+			if(req.getParameter("contractRefNo")!=null)
+			{
+				contractRefNo=req.getParameter("contractRefNo");
+			}
+			
+			String insertUpdateFlag="";
+			
+			if(req.getParameter("insertUpdateFlag")!=null) 
+			{
+				insertUpdateFlag=req.getParameter("insertUpdateFlag");
+			}
+			 
+			 
+<<<<<<< .mine
+		
+			
+			// ETHLogger.log(dbConnVar, "vehicleRegNo--servlet-> "+vehicleRegNo);
+			 
+=======
+			  
+>>>>>>> .r141685
+			CommonBean bean=new CommonBean(dbConnVar);
+			
+			String data=
+				
+				
+				vehicleRegNo+"\ub006"+plateTypeId+"\ub006"+chassisNo+"\ub006"+engineNo+"\ub006"+trafficFileNo+"\ub006"+engineCapacity+"\ub006"+makeCompanyList+"\ub006"+model+"\ub006"+ivmsNo+"\ub006"+vehicleTypeList+"\ub006"+ownerName+"\ub006"+fuelTypeList+"\ub006"+fuelCapacity+"\ub006"+fuelCardNo+"\ub006"+fuelLimit+"\ub006"+seatingCapacity+"\ub006"+mileage+"\ub006"+expAccount +"\ub006"+regExpDate+"\ub006"+contractExpDate+"\ub006"+hiredDate+"\ub006"+offHiredDate+"\ub006"+hiredRate+"\ub006"+contractRefNo;
+			//ETHLogger.log(dbConnVar+ "_VMS","data"+data); 
+			 
+			int vehicleMasterInsertion=bean.insertVehicleDetails(data,insertUpdateFlag,token);  
+			
+			if(vehicleMasterInsertion==1){
+				  
+				msg="Vehicle Details Inserted Successfully."; 
+			
+			}else if(vehicleMasterInsertion==2){
+			
+				msg="Vehicle Reg No Already Exists."; 
+			
+			}else{
+<<<<<<< .mine
+			
+				msg="Error in inserting Vehicle Details. ";
+=======
+				msg="Error in Inserting Vehicle Details. ";
+>>>>>>> .r141685
+			} 
+		
+			session.setAttribute("message", msg);
+			res.sendRedirect(req.getContextPath()+"/form/jsp_master/vms_VehicleMaster.jsp");
+		
+		
+		}catch(Exception e)
+		{
+		
+		}
+		
+	}
+
+	/**
+	 * Initialization of the servlet. <br>
+	 *
+	 * @throws ServletException if an error occure
+	 */
+	public void init() throws ServletException {
+		// Put your code here
+	}
+
+}

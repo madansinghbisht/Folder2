@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/_education/!svn/ver/142104/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common
+END
+VehicleMasterServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/_education/!svn/ver/142104/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/VehicleMasterServlet.java
+END
+InsuranceDetailsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/_education/!svn/ver/141675/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/InsuranceDetailsServlet.java
+END
+AccidentDetailsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/_education/!svn/ver/142016/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/AccidentDetailsServlet.java
+END
+VehicleRegistrationDetailsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/_education/!svn/ver/141679/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/VehicleRegistrationDetailsServlet.java
+END
+DriverAllocationServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/_education/!svn/ver/142017/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/DriverAllocationServlet.java
+END
+ServiceEntryServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/_education/!svn/ver/142103/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/ServiceEntryServlet.java
+END
+RepairEntryServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/_education/!svn/ver/142102/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/RepairEntryServlet.java
+END
+documentDetailsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/_education/!svn/ver/142023/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/documentDetailsServlet.java
+END
+FuelReadingServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/_education/!svn/ver/142101/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/FuelReadingServlet.java
+END
+PostToFinance.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/_education/!svn/ver/142022/_Projects/DCi18n/Code/trunks/workspace/VMSWeb/src/servlets/common/PostToFinance.java
+END
